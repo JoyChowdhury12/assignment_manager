@@ -1,4 +1,6 @@
+import 'package:assignment_manager/presentation/screens/reset_password_screen.dart';
 import 'package:assignment_manager/presentation/screens/sign_up_screen.dart';
+import 'package:assignment_manager/presentation/utils/app_colors.dart';
 import 'package:assignment_manager/presentation/widgets/app_background_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
@@ -49,64 +51,72 @@ class _PincodeVerifyScreenState extends State<PincodeVerifyScreen> {
                       textAlign: TextAlign.center),
                 ),
                 const Gap(18),
-                PinCodeTextField(
-                  appContext: context,
-                  length: 4,
-                  obscureText: false,
-                  controller: _pinCodeController,
-                  keyboardType: TextInputType.number,
-                  animationType: AnimationType.fade,
-                  validator: (v) {},
-                  pinTheme: PinTheme(
-                      shape: PinCodeFieldShape.box,
-                      borderRadius: BorderRadius.circular(5),
-                      fieldHeight: 50,
-                      fieldWidth: 40,
-                      activeFillColor: Colors.white,
-                      inactiveFillColor: Colors.white),
-                  cursorColor: Colors.black,
-                  animationDuration: const Duration(milliseconds: 300),
-                  enableActiveFill: true,
-                  boxShadows: const [
-                    BoxShadow(
-                      offset: Offset(0, 1),
-                      color: Colors.black12,
-                      blurRadius: 10,
-                    )
-                  ],
-                  onCompleted: (v) {
-                    debugPrint("Completed");
-                  },
-                  onChanged: (value) {},
-                  beforeTextPaste: (text) {
-                    debugPrint("Allowing to paste $text");
-                    //if you return true then it will show the paste confirmation dialog. Otherwise if false, then nothing will happen.
-                    //but you can show anything you want here, like your pop up saying wrong paste format or etc
-                    return true;
-                  },
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 24),
+                  child: PinCodeTextField(
+                    appContext: context,
+                    length: 4,
+                    obscureText: false,
+                    controller: _pinCodeController,
+                    keyboardType: TextInputType.number,
+                    animationType: AnimationType.fade,
+                    validator: (v) {},
+                    pinTheme: PinTheme(
+                        shape: PinCodeFieldShape.box,
+                        borderRadius: BorderRadius.circular(5),
+                        fieldHeight: 50,
+                        fieldWidth: 45,
+                        activeFillColor: Colors.white,
+                        inactiveFillColor: Colors.white,
+                        inactiveColor: AppColors.themeColor,
+                        selectedFillColor: Colors.white),
+                    cursorColor: Colors.black,
+                    animationDuration: const Duration(milliseconds: 300),
+                    enableActiveFill: true,
+                    backgroundColor: Colors.transparent,
+                    boxShadows: const [
+                      BoxShadow(
+                        offset: Offset(0, 1),
+                        color: Colors.black12,
+                        blurRadius: 10,
+                      )
+                    ],
+                    onCompleted: (v) {
+                      debugPrint("Completed");
+                    },
+                    onChanged: (value) {},
+                    beforeTextPaste: (text) {
+                      debugPrint("Allowing to paste $text");
+                      //if you return true then it will show the paste confirmation dialog. Otherwise if false, then nothing will happen.
+                      //but you can show anything you want here, like your pop up saying wrong paste format or etc
+                      return true;
+                    },
+                  ),
                 ),
                 const Gap(24),
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ResetPasswordScreen(),
+                        ),
+                      );
+                    },
                     child: const Text("Verify code"),
                   ),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text("Don't have an account?"),
+                    const Text("Already have an Account?"),
                     TextButton(
                       onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const SignUpScreen(),
-                          ),
-                        );
+                        Navigator.pop(context);
                       },
-                      child: const Text("Sign Up"),
+                      child: const Text("Sign In"),
                     ),
                   ],
                 )

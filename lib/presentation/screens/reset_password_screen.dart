@@ -12,13 +12,11 @@ class ResetPasswordScreen extends StatefulWidget {
 }
 
 class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
-  final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
   void dispose() {
-    _emailController.dispose();
     _passwordController.dispose();
     super.dispose();
   }
@@ -37,59 +35,44 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
               children: [
                 const Gap(100),
                 Text(
-                  "Let's start with us!",
+                  "Reset Password",
                   style: theme.textTheme.titleLarge,
                 ),
-                const Gap(18),
-                TextFormField(
-                  controller: _emailController,
-                  keyboardType: TextInputType.emailAddress,
-                  decoration:
-                      const InputDecoration(hintText: "Enter your email"),
+                const Gap(6),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  child: Text(
+                      "Password must have 8 letters with number combination",
+                      style: TextStyle(color: Colors.grey, fontSize: 15),
+                      textAlign: TextAlign.center),
                 ),
                 const Gap(18),
                 TextFormField(
                   controller: _passwordController,
                   obscureText: true,
                   decoration:
-                      const InputDecoration(hintText: "Enter your password"),
+                      const InputDecoration(hintText: "Your new password"),
                 ),
                 const Gap(24),
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
                     onPressed: () {},
-                    child: const Text("Sign In"),
+                    child: const Text("Reset password"),
                   ),
-                ),
-                TextButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const EmailVerifyScreen(),
-                      ),
-                    );
-                  },
-                  child: const Text("Forgot Password"),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text("Don't have an account?"),
+                    const Text("Already have an Account?"),
                     TextButton(
                       onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const SignUpScreen(),
-                          ),
-                        );
+                        Navigator.pop(context);
                       },
-                      child: const Text("Sign Up"),
+                      child: const Text("Sign In"),
                     ),
                   ],
-                )
+                ),
               ],
             ),
           ),
