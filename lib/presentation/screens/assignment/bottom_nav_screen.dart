@@ -1,5 +1,9 @@
 import 'package:assignment_manager/presentation/utils/app_colors.dart';
 import 'package:assignment_manager/presentation/widgets/app_background_widget.dart';
+import 'package:assignment_manager/presentation/widgets/assignment_cancelled_screen.dart';
+import 'package:assignment_manager/presentation/widgets/assignment_completed_screen.dart';
+import 'package:assignment_manager/presentation/widgets/assignment_overview_screen.dart';
+import 'package:assignment_manager/presentation/widgets/assignment_screen.dart';
 import 'package:flutter/material.dart';
 
 class BottomNavScreen extends StatefulWidget {
@@ -11,10 +15,16 @@ class BottomNavScreen extends StatefulWidget {
 
 class _BottomNavScreenState extends State<BottomNavScreen> {
   int _currentSelectedIndex = 0;
+  final List<Widget> _screens = [
+    AssignmentScreen(),
+    CompletedScreen(),
+    CancelledScreen(),
+    OverviewScreen()
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: AppBackgroundWidget(child: Container()),
+      body: _screens[_currentSelectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: AppColors.themeColor,
         currentIndex: _currentSelectedIndex,
@@ -25,11 +35,11 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
         },
         unselectedItemColor: Colors.grey,
         showUnselectedLabels: true,
-        items: [
-          BottomNavigationBarItem(icon: Icon(Icons.add), label: "Assignments"),
-          BottomNavigationBarItem(icon: Icon(Icons.add), label: "Completed"),
-          BottomNavigationBarItem(icon: Icon(Icons.add), label: "Canceled"),
-          BottomNavigationBarItem(icon: Icon(Icons.add), label: "Overview"),
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.task), label: "Assignments"),
+          BottomNavigationBarItem(icon: Icon(Icons.done), label: "Completed"),
+          BottomNavigationBarItem(icon: Icon(Icons.close), label: "Canceled"),
+          BottomNavigationBarItem(icon: Icon(Icons.abc), label: "Overview"),
         ],
       ),
     );
