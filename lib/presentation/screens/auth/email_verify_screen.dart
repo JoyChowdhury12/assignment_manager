@@ -1,4 +1,4 @@
-import 'package:assignment_manager/presentation/screens/pincode_verify_screen.dart';
+import 'package:assignment_manager/presentation/screens/auth/pincode_verify_screen.dart';
 import 'package:assignment_manager/presentation/widgets/app_background_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
@@ -61,7 +61,7 @@ class _SignInScreenState extends State<EmailVerifyScreen> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => PincodeVerifyScreen(),
+                          builder: (context) => const PincodeVerifyScreen(),
                         ),
                       );
                     },

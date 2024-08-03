@@ -1,4 +1,4 @@
-import 'package:assignment_manager/presentation/screens/splash_screen.dart';
+import 'package:assignment_manager/presentation/screens/auth/splash_screen.dart';
 import 'package:assignment_manager/presentation/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 
@@ -32,7 +32,8 @@ class AssignmentManagerApp extends StatelessWidget {
         textButtonTheme: TextButtonThemeData(
           style: TextButton.styleFrom(
               foregroundColor: AppColors.themeColor,
-              textStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+              textStyle:
+                  const TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
         ),
         textTheme: const TextTheme(
           titleLarge: TextStyle(

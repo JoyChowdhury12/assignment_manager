@@ -1,5 +1,5 @@
-import 'package:assignment_manager/presentation/screens/reset_password_screen.dart';
-import 'package:assignment_manager/presentation/screens/sign_up_screen.dart';
+import 'package:assignment_manager/presentation/screens/auth/reset_password_screen.dart';
+import 'package:assignment_manager/presentation/screens/auth/sign_in_screen.dart';
 import 'package:assignment_manager/presentation/utils/app_colors.dart';
 import 'package:assignment_manager/presentation/widgets/app_background_widget.dart';
 import 'package:flutter/material.dart';
@@ -37,14 +37,14 @@ class _PincodeVerifyScreenState extends State<PincodeVerifyScreen> {
             key: _formKey,
             child: Column(
               children: [
-                const Gap(100),
+                const Gap(120),
                 Text(
                   "Pin Verification",
                   style: theme.textTheme.titleLarge,
                 ),
                 const Gap(6),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16),
                   child: Text(
                       "A 4 digits verification code will be sent to your email address",
                       style: TextStyle(color: Colors.grey, fontSize: 15),
@@ -60,7 +60,9 @@ class _PincodeVerifyScreenState extends State<PincodeVerifyScreen> {
                     controller: _pinCodeController,
                     keyboardType: TextInputType.number,
                     animationType: AnimationType.fade,
-                    validator: (v) {},
+                    validator: (v) {
+                      return null;
+                    },
                     pinTheme: PinTheme(
                         shape: PinCodeFieldShape.box,
                         borderRadius: BorderRadius.circular(5),
@@ -93,7 +95,7 @@ class _PincodeVerifyScreenState extends State<PincodeVerifyScreen> {
                     },
                   ),
                 ),
-                const Gap(24),
+                const Gap(10),
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
@@ -101,7 +103,7 @@ class _PincodeVerifyScreenState extends State<PincodeVerifyScreen> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => ResetPasswordScreen(),
+                          builder: (context) => const ResetPasswordScreen(),
                         ),
                       );
                     },
@@ -114,7 +116,11 @@ class _PincodeVerifyScreenState extends State<PincodeVerifyScreen> {
                     const Text("Already have an Account?"),
                     TextButton(
                       onPressed: () {
-                        Navigator.pop(context);
+                        Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const SignInScreen()),
+                            (route) => false);
                       },
                       child: const Text("Sign In"),
                     ),

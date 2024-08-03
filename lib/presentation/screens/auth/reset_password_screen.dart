@@ -1,5 +1,4 @@
-import 'package:assignment_manager/presentation/screens/email_verify_screen.dart';
-import 'package:assignment_manager/presentation/screens/sign_up_screen.dart';
+import 'package:assignment_manager/presentation/screens/auth/sign_in_screen.dart';
 import 'package:assignment_manager/presentation/widgets/app_background_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
@@ -39,8 +38,8 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                   style: theme.textTheme.titleLarge,
                 ),
                 const Gap(6),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16),
                   child: Text(
                       "Password must have 8 letters with number combination",
                       style: TextStyle(color: Colors.grey, fontSize: 15),
@@ -67,7 +66,11 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                     const Text("Already have an Account?"),
                     TextButton(
                       onPressed: () {
-                        Navigator.pop(context);
+                        Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const SignInScreen()),
+                            (route) => false);
                       },
                       child: const Text("Sign In"),
                     ),

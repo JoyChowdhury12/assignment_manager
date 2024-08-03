@@ -1,4 +1,4 @@
-import 'package:assignment_manager/presentation/screens/sign_in_screen.dart';
+import 'package:assignment_manager/presentation/screens/auth/sign_in_screen.dart';
 import 'package:assignment_manager/presentation/utils/asset_manager.dart';
 import 'package:assignment_manager/presentation/widgets/app_background_widget.dart';
 import 'package:flutter/material.dart';

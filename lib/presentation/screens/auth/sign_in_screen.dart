@@ -1,5 +1,6 @@
-import 'package:assignment_manager/presentation/screens/email_verify_screen.dart';
-import 'package:assignment_manager/presentation/screens/sign_up_screen.dart';
+import 'package:assignment_manager/presentation/screens/assignment/bottom_nav_screen.dart';
+import 'package:assignment_manager/presentation/screens/auth/email_verify_screen.dart';
+import 'package:assignment_manager/presentation/screens/auth/sign_up_screen.dart';
 import 'package:assignment_manager/presentation/widgets/app_background_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
@@ -58,7 +59,14 @@ class _SignInScreenState extends State<SignInScreen> {
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => BottomNavScreen(),
+                        ),
+                      );
+                    },
                     child: const Text("Sign In"),
                   ),
                 ),
