@@ -1,9 +1,10 @@
 import 'package:assignment_manager/presentation/utils/app_colors.dart';
-import 'package:assignment_manager/presentation/widgets/assignment_cancelled_screen.dart';
-import 'package:assignment_manager/presentation/widgets/assignment_completed_screen.dart';
-import 'package:assignment_manager/presentation/widgets/assignment_overview_screen.dart';
-import 'package:assignment_manager/presentation/widgets/assignment_screen.dart';
+import 'package:assignment_manager/presentation/screens/assignment/assignment_cancelled_screen.dart';
+import 'package:assignment_manager/presentation/screens/assignment/assignment_overview_screen.dart';
+import 'package:assignment_manager/presentation/screens/assignment/assignment_screen.dart';
 import 'package:flutter/material.dart';
+
+import 'assignment_completed_screen.dart';
 
 class BottomNavScreen extends StatefulWidget {
   const BottomNavScreen({super.key});

@@ -14,6 +14,8 @@ class _AssignmentManagerAppState extends State<AssignmentManagerApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      navigatorKey: AssignmentManagerApp.navigatorKey,
       title: "Assignment Manager",
       home: const SplashScreen(),
       theme: ThemeData(
