@@ -2,9 +2,15 @@ import 'package:assignment_manager/presentation/screens/auth/splash_screen.dart'
 import 'package:assignment_manager/presentation/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 
-class AssignmentManagerApp extends StatelessWidget {
+class AssignmentManagerApp extends StatefulWidget {
   const AssignmentManagerApp({super.key});
+  static GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
+  @override
+  State<AssignmentManagerApp> createState() => _AssignmentManagerAppState();
+}
+
+class _AssignmentManagerAppState extends State<AssignmentManagerApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

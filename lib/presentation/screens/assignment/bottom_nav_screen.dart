@@ -1,5 +1,4 @@
 import 'package:assignment_manager/presentation/utils/app_colors.dart';
-import 'package:assignment_manager/presentation/widgets/app_background_widget.dart';
 import 'package:assignment_manager/presentation/widgets/assignment_cancelled_screen.dart';
 import 'package:assignment_manager/presentation/widgets/assignment_completed_screen.dart';
 import 'package:assignment_manager/presentation/widgets/assignment_overview_screen.dart';
@@ -16,10 +15,10 @@ class BottomNavScreen extends StatefulWidget {
 class _BottomNavScreenState extends State<BottomNavScreen> {
   int _currentSelectedIndex = 0;
   final List<Widget> _screens = [
-    AssignmentScreen(),
-    CompletedScreen(),
-    CancelledScreen(),
-    OverviewScreen()
+    const AssignmentScreen(),
+    const CompletedScreen(),
+    const CancelledScreen(),
+    const OverviewScreen()
   ];
   @override
   Widget build(BuildContext context) {
