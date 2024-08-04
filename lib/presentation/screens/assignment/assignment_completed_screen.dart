@@ -9,7 +9,7 @@ class CompletedScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: profileAppBar,
-      body: AppBackgroundWidget(
+      body: const AppBackgroundWidget(
         child: Center(
           child: Text("Completed Screen"),
         ),

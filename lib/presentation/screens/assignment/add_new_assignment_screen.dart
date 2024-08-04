@@ -16,31 +16,31 @@ class _AddNewAssignmentScreenState extends State<AddNewAssignmentScreen> {
     return Scaffold(
       appBar: profileAppBar,
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         child: Form(
           key: _formKey,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Gap(45),
+              const Gap(45),
               Text("Create New Assignment",
                   style: Theme.of(context)
                       .textTheme
                       .titleLarge
                       ?.copyWith(fontSize: 24)),
-              Gap(16),
+              const Gap(16),
               TextFormField(
-                decoration: InputDecoration(hintText: "Enter Title"),
+                decoration: const InputDecoration(hintText: "Enter Title"),
               ),
-              Gap(16),
+              const Gap(16),
               TextFormField(
                   maxLines: 7,
-                  decoration: InputDecoration(hintText: "Enter Description")),
-              Gap(16),
+                  decoration: const InputDecoration(hintText: "Enter Description")),
+              const Gap(16),
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                    onPressed: () {}, child: Text("Create New Assignment")),
+                    onPressed: () {}, child: const Text("Create New Assignment")),
               )
             ],
           ),

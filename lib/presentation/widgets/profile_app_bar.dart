@@ -14,7 +14,7 @@ PreferredSizeWidget get profileAppBar {
         Navigator.push(
           AssignmentManagerApp.navigatorKey.currentState!.context,
           MaterialPageRoute(
-            builder: (context) => UpdateProfileScreen(),
+            builder: (context) => const UpdateProfileScreen(),
           ),
         );
       },

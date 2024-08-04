@@ -49,6 +49,11 @@ class _AssignmentManagerAppState extends State<AssignmentManagerApp> {
             fontWeight: FontWeight.w600,
           ),
         ),
+        chipTheme: ChipThemeData(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(50),
+          ),
+        ),
       ),
     );
   }
