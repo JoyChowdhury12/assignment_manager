@@ -21,13 +21,18 @@ class _AssignmentManagerAppState extends State<AssignmentManagerApp> {
       theme: ThemeData(
         fontFamily: 'Roboto',
         inputDecorationTheme: InputDecorationTheme(
-          fillColor: const Color(0x75FAEAB4),
+          fillColor: const Color(0x35FAEAB4),
           filled: true,
           contentPadding:
               const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
           border: OutlineInputBorder(
               borderSide: BorderSide.none,
               borderRadius: BorderRadius.circular(8)),
+        ),
+        appBarTheme: AppBarTheme(
+          iconTheme: IconThemeData(
+            color: Colors.white, //change your color here
+          ),
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(

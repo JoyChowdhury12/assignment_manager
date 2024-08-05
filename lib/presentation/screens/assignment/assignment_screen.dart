@@ -3,7 +3,6 @@ import 'package:assignment_manager/presentation/utils/app_colors.dart';
 import 'package:assignment_manager/presentation/widgets/app_background_widget.dart';
 import 'package:assignment_manager/presentation/widgets/profile_app_bar.dart';
 import 'package:assignment_manager/presentation/widgets/task_item.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class AssignmentScreen extends StatelessWidget {
@@ -20,7 +19,7 @@ class AssignmentScreen extends StatelessWidget {
             child: ListView.builder(
               shrinkWrap: true,
               itemCount: 10,
-              itemBuilder: (context, index) => TaskItem(),
+              itemBuilder: (context, index) => const TaskItem(),
             ),
           ),
         ],
