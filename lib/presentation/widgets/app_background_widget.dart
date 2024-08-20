@@ -5,11 +5,12 @@ import '../utils/asset_manager.dart';
 
 class AppBackgroundWidget extends StatelessWidget {
   final Widget child;
+
   const AppBackgroundWidget({super.key, required this.child});
 
   @override
   Widget build(BuildContext context) {
-    return  Stack(
+    return Stack(
       children: [
         SvgPicture.asset(
           AssetManager.appBackgroundImage,

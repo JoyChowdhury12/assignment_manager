@@ -29,7 +29,7 @@ class _AssignmentManagerAppState extends State<AssignmentManagerApp> {
               borderSide: BorderSide.none,
               borderRadius: BorderRadius.circular(8)),
         ),
-        appBarTheme: AppBarTheme(
+        appBarTheme: const AppBarTheme(
           iconTheme: IconThemeData(
             color: Colors.white, //change your color here
           ),
