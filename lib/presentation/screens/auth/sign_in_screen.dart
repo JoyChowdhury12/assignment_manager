@@ -5,6 +5,11 @@ import 'package:assignment_manager/presentation/widgets/app_background_widget.da
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
+import '../../../data/models/response_model.dart';
+import '../../../data/network_const.dart';
+import '../../../data/services/api_service.dart';
+import '../../utils/toast_util.dart';
+
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
 
@@ -17,11 +22,47 @@ class _SignInScreenState extends State<SignInScreen> {
   final TextEditingController _passwordController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
+  bool _isRegistrationInProgress = false;
+
   @override
   void dispose() {
     _emailController.dispose();
     _passwordController.dispose();
     super.dispose();
+  }
+
+  Future<void> _logIn() async {
+    _isRegistrationInProgress = true;
+    setState(() {});
+    Map<String, dynamic> inputParams = {
+      "email": _emailController.text.trim(),
+      "password": _passwordController.text.trim(),
+    };
+    ResponseModel response = await ApiService.postRequest(
+      NetworkConst.login,
+      inputParams,
+    );
+    _isRegistrationInProgress = false;
+    setState(() {});
+    if (response.isSuccess) {
+      if (mounted) {
+        ToastUtil.showSnackBarMessage(context, "Login Successful!");
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const BottomNavScreen(),
+          ),
+        );
+      }
+    } else {
+      if (mounted) {
+        ToastUtil.showSnackBarMessage(
+          context,
+          "Incorrect Password! Please try again",
+          isErrorMessage: true,
+        );
+      }
+    }
   }
 
   @override
@@ -56,18 +97,19 @@ class _SignInScreenState extends State<SignInScreen> {
                       const InputDecoration(hintText: "Enter your password"),
                 ),
                 const Gap(24),
-                SizedBox(
-                  width: double.infinity,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const BottomNavScreen(),
-                        ),
-                      );
-                    },
-                    child: const Text("Sign In"),
+                Visibility(
+                  visible: _isRegistrationInProgress == false,
+                  replacement: const CircularProgressIndicator(),
+                  child: SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        if (_formKey.currentState!.validate()) {
+                          _logIn();
+                        }
+                      },
+                      child: const Text("Sign In"),
+                    ),
                   ),
                 ),
                 TextButton(

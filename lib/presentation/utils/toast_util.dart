@@ -6,7 +6,7 @@ class ToastUtil {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
           content: Text(message),
-          backgroundColor: isErrorMessage ? Colors.red : null),
+          backgroundColor: isErrorMessage ? Colors.red : Colors.green),
     );
   }
 }
