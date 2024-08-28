@@ -99,7 +99,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 const Gap(24),
                 Visibility(
                   visible: _isRegistrationInProgress == false,
-                  replacement: CircularProgressIndicator(),
+                  replacement: const CircularProgressIndicator(),
                   child: SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(
